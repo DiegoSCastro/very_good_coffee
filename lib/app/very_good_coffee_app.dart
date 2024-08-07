@@ -1,22 +1,23 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import 'app.dart';
+import 'package:very_good_coffee/app/app.dart';
 
-//Todo: Rename App
 class VeryGoodCoffeeApp extends StatelessWidget {
   const VeryGoodCoffeeApp({super.key});
 
   @override
   Widget build(BuildContext context) {
     return MultiBlocProvider(
-      providers: const [],
+      providers: [
+        BlocProvider(create: (context) => injection<HomeCubit>()),
+      ],
       child: MaterialApp(
-        //Todo: Rename App
-        title: 'MyApp',
+        title: 'Very Good Coffee',
         debugShowCheckedModeBanner: false,
         theme: ThemeConfig.theme,
-        home: const HomePage(),
+        initialRoute: AppRoutes.home,
+        routes: AppRoutes.routes,
       ),
     );
   }
