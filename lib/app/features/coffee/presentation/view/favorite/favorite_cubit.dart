@@ -16,8 +16,8 @@ class FavoriteCubit extends Cubit<FavoriteState> {
     final result = await _getFavoriteImagesUsecase();
     result.fold(
       (_) => emit(FavoriteState.error(errorMessage: 'Error loading images')),
-      (files) {
-        emit(FavoriteState.success(files: files));
+      (coffeImages) {
+        emit(FavoriteState.success(coffeImages: coffeImages));
       },
     );
   }
@@ -29,7 +29,7 @@ class FavoriteCubit extends Cubit<FavoriteState> {
       (_) => emit(FavoriteState.error(errorMessage: 'Error saving favorite')),
       (_) {
         emit(FavoriteState.saved());
-        emit(FavoriteState.success(files: []));
+        emit(FavoriteState.success(coffeImages: []));
       },
     );
   }

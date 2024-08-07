@@ -1,3 +1,5 @@
+import 'dart:typed_data';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:very_good_coffee/app/app.dart';
@@ -27,15 +29,15 @@ class _$FavoritePageState extends State<FavoritePage> {
       body: Center(
         child: BlocBuilder<FavoriteCubit, FavoriteState>(
           builder: (context, state) => switch (state) {
-            FavoriteSuccess(:final files) => Visibility(
-                visible: files.isNotEmpty,
+            FavoriteSuccess(:final coffeImages) => Visibility(
+                visible: coffeImages.isNotEmpty,
                 replacement: const Text('Favorites is Empty'),
                 child: ListView.builder(
-                  itemCount: files.length,
+                  itemCount: coffeImages.length,
                   itemBuilder: (context, index) {
-                    final image = files[index];
+                    final image = coffeImages[index];
                     return ListTile(
-                      leading: Image.file(image),
+                      leading: Image.memory(Uint8List.fromList(image.bytes)),
                       trailing: IconButton(
                         icon: const Icon(Icons.delete),
                         onPressed: () {

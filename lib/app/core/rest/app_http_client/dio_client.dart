@@ -41,7 +41,7 @@ class DioClient implements AppHttpClient {
       };
 
   @override
-  String baseUrl = AppEnv.baseUrl;
+  String baseUrl = '';
 
   @override
   Future<AppHttpResponse<T?>> get<T>(
@@ -49,11 +49,16 @@ class DioClient implements AppHttpClient {
     Map<String, dynamic>? headers,
     Map<String, dynamic>? extra,
   }) async {
+    final responseType = extra != null && extra['responseType'] != null
+        ? extra['responseType']
+        : null;
+
     final response = await dio.getUri<T>(
       uri,
       options: Options(
         headers: headers != null ? {...baseHeaders, ...headers} : baseHeaders,
         extra: extra,
+        responseType: responseType,
       ),
     );
 

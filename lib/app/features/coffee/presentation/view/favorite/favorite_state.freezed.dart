@@ -21,7 +21,7 @@ mixin _$FavoriteState {
     required TResult Function() initial,
     required TResult Function() loading,
     required TResult Function() saved,
-    required TResult Function(List<File> files) success,
+    required TResult Function(List<CoffeeImage> coffeImages) success,
     required TResult Function(String errorMessage) error,
   }) =>
       throw _privateConstructorUsedError;
@@ -30,7 +30,7 @@ mixin _$FavoriteState {
     TResult? Function()? initial,
     TResult? Function()? loading,
     TResult? Function()? saved,
-    TResult? Function(List<File> files)? success,
+    TResult? Function(List<CoffeeImage> coffeImages)? success,
     TResult? Function(String errorMessage)? error,
   }) =>
       throw _privateConstructorUsedError;
@@ -39,7 +39,7 @@ mixin _$FavoriteState {
     TResult Function()? initial,
     TResult Function()? loading,
     TResult Function()? saved,
-    TResult Function(List<File> files)? success,
+    TResult Function(List<CoffeeImage> coffeImages)? success,
     TResult Function(String errorMessage)? error,
     required TResult orElse(),
   }) =>
@@ -139,7 +139,7 @@ class _$FavoriteInitialImpl implements FavoriteInitial {
     required TResult Function() initial,
     required TResult Function() loading,
     required TResult Function() saved,
-    required TResult Function(List<File> files) success,
+    required TResult Function(List<CoffeeImage> coffeImages) success,
     required TResult Function(String errorMessage) error,
   }) {
     return initial();
@@ -151,7 +151,7 @@ class _$FavoriteInitialImpl implements FavoriteInitial {
     TResult? Function()? initial,
     TResult? Function()? loading,
     TResult? Function()? saved,
-    TResult? Function(List<File> files)? success,
+    TResult? Function(List<CoffeeImage> coffeImages)? success,
     TResult? Function(String errorMessage)? error,
   }) {
     return initial?.call();
@@ -163,7 +163,7 @@ class _$FavoriteInitialImpl implements FavoriteInitial {
     TResult Function()? initial,
     TResult Function()? loading,
     TResult Function()? saved,
-    TResult Function(List<File> files)? success,
+    TResult Function(List<CoffeeImage> coffeImages)? success,
     TResult Function(String errorMessage)? error,
     required TResult orElse(),
   }) {
@@ -262,7 +262,7 @@ class _$FavoriteLoadingImpl implements FavoriteLoading {
     required TResult Function() initial,
     required TResult Function() loading,
     required TResult Function() saved,
-    required TResult Function(List<File> files) success,
+    required TResult Function(List<CoffeeImage> coffeImages) success,
     required TResult Function(String errorMessage) error,
   }) {
     return loading();
@@ -274,7 +274,7 @@ class _$FavoriteLoadingImpl implements FavoriteLoading {
     TResult? Function()? initial,
     TResult? Function()? loading,
     TResult? Function()? saved,
-    TResult? Function(List<File> files)? success,
+    TResult? Function(List<CoffeeImage> coffeImages)? success,
     TResult? Function(String errorMessage)? error,
   }) {
     return loading?.call();
@@ -286,7 +286,7 @@ class _$FavoriteLoadingImpl implements FavoriteLoading {
     TResult Function()? initial,
     TResult Function()? loading,
     TResult Function()? saved,
-    TResult Function(List<File> files)? success,
+    TResult Function(List<CoffeeImage> coffeImages)? success,
     TResult Function(String errorMessage)? error,
     required TResult orElse(),
   }) {
@@ -385,7 +385,7 @@ class _$FavoriteSavedImpl implements FavoriteSaved {
     required TResult Function() initial,
     required TResult Function() loading,
     required TResult Function() saved,
-    required TResult Function(List<File> files) success,
+    required TResult Function(List<CoffeeImage> coffeImages) success,
     required TResult Function(String errorMessage) error,
   }) {
     return saved();
@@ -397,7 +397,7 @@ class _$FavoriteSavedImpl implements FavoriteSaved {
     TResult? Function()? initial,
     TResult? Function()? loading,
     TResult? Function()? saved,
-    TResult? Function(List<File> files)? success,
+    TResult? Function(List<CoffeeImage> coffeImages)? success,
     TResult? Function(String errorMessage)? error,
   }) {
     return saved?.call();
@@ -409,7 +409,7 @@ class _$FavoriteSavedImpl implements FavoriteSaved {
     TResult Function()? initial,
     TResult Function()? loading,
     TResult Function()? saved,
-    TResult Function(List<File> files)? success,
+    TResult Function(List<CoffeeImage> coffeImages)? success,
     TResult Function(String errorMessage)? error,
     required TResult orElse(),
   }) {
@@ -470,7 +470,7 @@ abstract class _$$FavoriteSuccessImplCopyWith<$Res> {
           $Res Function(_$FavoriteSuccessImpl) then) =
       __$$FavoriteSuccessImplCopyWithImpl<$Res>;
   @useResult
-  $Res call({List<File> files});
+  $Res call({List<CoffeeImage> coffeImages});
 }
 
 /// @nodoc
@@ -486,13 +486,13 @@ class __$$FavoriteSuccessImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? files = null,
+    Object? coffeImages = null,
   }) {
     return _then(_$FavoriteSuccessImpl(
-      files: null == files
-          ? _value._files
-          : files // ignore: cast_nullable_to_non_nullable
-              as List<File>,
+      coffeImages: null == coffeImages
+          ? _value._coffeImages
+          : coffeImages // ignore: cast_nullable_to_non_nullable
+              as List<CoffeeImage>,
     ));
   }
 }
@@ -500,19 +500,20 @@ class __$$FavoriteSuccessImplCopyWithImpl<$Res>
 /// @nodoc
 
 class _$FavoriteSuccessImpl implements FavoriteSuccess {
-  _$FavoriteSuccessImpl({required final List<File> files}) : _files = files;
+  _$FavoriteSuccessImpl({required final List<CoffeeImage> coffeImages})
+      : _coffeImages = coffeImages;
 
-  final List<File> _files;
+  final List<CoffeeImage> _coffeImages;
   @override
-  List<File> get files {
-    if (_files is EqualUnmodifiableListView) return _files;
+  List<CoffeeImage> get coffeImages {
+    if (_coffeImages is EqualUnmodifiableListView) return _coffeImages;
     // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_files);
+    return EqualUnmodifiableListView(_coffeImages);
   }
 
   @override
   String toString() {
-    return 'FavoriteState.success(files: $files)';
+    return 'FavoriteState.success(coffeImages: $coffeImages)';
   }
 
   @override
@@ -520,12 +521,13 @@ class _$FavoriteSuccessImpl implements FavoriteSuccess {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$FavoriteSuccessImpl &&
-            const DeepCollectionEquality().equals(other._files, _files));
+            const DeepCollectionEquality()
+                .equals(other._coffeImages, _coffeImages));
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(_files));
+  int get hashCode => Object.hash(
+      runtimeType, const DeepCollectionEquality().hash(_coffeImages));
 
   /// Create a copy of FavoriteState
   /// with the given fields replaced by the non-null parameter values.
@@ -542,10 +544,10 @@ class _$FavoriteSuccessImpl implements FavoriteSuccess {
     required TResult Function() initial,
     required TResult Function() loading,
     required TResult Function() saved,
-    required TResult Function(List<File> files) success,
+    required TResult Function(List<CoffeeImage> coffeImages) success,
     required TResult Function(String errorMessage) error,
   }) {
-    return success(files);
+    return success(coffeImages);
   }
 
   @override
@@ -554,10 +556,10 @@ class _$FavoriteSuccessImpl implements FavoriteSuccess {
     TResult? Function()? initial,
     TResult? Function()? loading,
     TResult? Function()? saved,
-    TResult? Function(List<File> files)? success,
+    TResult? Function(List<CoffeeImage> coffeImages)? success,
     TResult? Function(String errorMessage)? error,
   }) {
-    return success?.call(files);
+    return success?.call(coffeImages);
   }
 
   @override
@@ -566,12 +568,12 @@ class _$FavoriteSuccessImpl implements FavoriteSuccess {
     TResult Function()? initial,
     TResult Function()? loading,
     TResult Function()? saved,
-    TResult Function(List<File> files)? success,
+    TResult Function(List<CoffeeImage> coffeImages)? success,
     TResult Function(String errorMessage)? error,
     required TResult orElse(),
   }) {
     if (success != null) {
-      return success(files);
+      return success(coffeImages);
     }
     return orElse();
   }
@@ -618,10 +620,10 @@ class _$FavoriteSuccessImpl implements FavoriteSuccess {
 }
 
 abstract class FavoriteSuccess implements FavoriteState {
-  factory FavoriteSuccess({required final List<File> files}) =
+  factory FavoriteSuccess({required final List<CoffeeImage> coffeImages}) =
       _$FavoriteSuccessImpl;
 
-  List<File> get files;
+  List<CoffeeImage> get coffeImages;
 
   /// Create a copy of FavoriteState
   /// with the given fields replaced by the non-null parameter values.
@@ -702,7 +704,7 @@ class _$FavoriteErrorImpl implements FavoriteError {
     required TResult Function() initial,
     required TResult Function() loading,
     required TResult Function() saved,
-    required TResult Function(List<File> files) success,
+    required TResult Function(List<CoffeeImage> coffeImages) success,
     required TResult Function(String errorMessage) error,
   }) {
     return error(errorMessage);
@@ -714,7 +716,7 @@ class _$FavoriteErrorImpl implements FavoriteError {
     TResult? Function()? initial,
     TResult? Function()? loading,
     TResult? Function()? saved,
-    TResult? Function(List<File> files)? success,
+    TResult? Function(List<CoffeeImage> coffeImages)? success,
     TResult? Function(String errorMessage)? error,
   }) {
     return error?.call(errorMessage);
@@ -726,7 +728,7 @@ class _$FavoriteErrorImpl implements FavoriteError {
     TResult Function()? initial,
     TResult Function()? loading,
     TResult Function()? saved,
-    TResult Function(List<File> files)? success,
+    TResult Function(List<CoffeeImage> coffeImages)? success,
     TResult Function(String errorMessage)? error,
     required TResult orElse(),
   }) {

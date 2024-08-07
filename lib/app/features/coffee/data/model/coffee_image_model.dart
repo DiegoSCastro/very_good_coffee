@@ -11,7 +11,6 @@ class CoffeeImageModel with _$CoffeeImageModel {
   const factory CoffeeImageModel({
     @Default('') String id,
     @JsonKey(name: 'file') @Default('') String imageUrl,
-    @Default('') String localPath,
     @Default([]) List<int> bytes,
   }) = _CoffeeImageModel;
   const CoffeeImageModel._();
@@ -27,7 +26,6 @@ class CoffeeImageModel with _$CoffeeImageModel {
       CoffeeImageModel(
         id: coffeeImage.id,
         imageUrl: coffeeImage.imageUrl,
-        localPath: coffeeImage.localPath,
         bytes: coffeeImage.bytes,
       );
 
@@ -35,7 +33,6 @@ class CoffeeImageModel with _$CoffeeImageModel {
   CoffeeImage toEntity() => CoffeeImage(
         id: id,
         imageUrl: imageUrl,
-        localPath: localPath,
         bytes: bytes,
       );
 }

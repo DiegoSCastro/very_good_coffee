@@ -11,7 +11,6 @@ _$CoffeeImageModelImpl _$$CoffeeImageModelImplFromJson(
     _$CoffeeImageModelImpl(
       id: json['id'] as String? ?? '',
       imageUrl: json['file'] as String? ?? '',
-      localPath: json['localPath'] as String? ?? '',
       bytes: (json['bytes'] as List<dynamic>?)
               ?.map((e) => (e as num).toInt())
               .toList() ??
@@ -23,6 +22,5 @@ Map<String, dynamic> _$$CoffeeImageModelImplToJson(
     <String, dynamic>{
       'id': instance.id,
       'file': instance.imageUrl,
-      'localPath': instance.localPath,
       'bytes': instance.bytes,
     };

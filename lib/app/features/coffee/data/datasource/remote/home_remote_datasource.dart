@@ -12,7 +12,7 @@ class HomeRemoteDatasourceImpl implements HomeRemoteDatasource {
 
   @override
   Future<CoffeeImageModel> getRandomCoffeeImage() async {
-    const apiUrl = '/random.json';
+    const apiUrl = '${AppEnv.baseUrl}/random.json';
     final response = await _httpClient.get(Uri.parse(apiUrl));
     return CoffeeImageModel.fromJson(response.data);
   }

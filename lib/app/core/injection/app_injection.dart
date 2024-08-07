@@ -8,6 +8,8 @@ void initInjection() {
   injection
     ..registerLazySingleton<AppHttpClient>(DioClient.new)
     ..registerLazySingleton<DatabaseService>(() => DatabaseService.instance)
-    ..registerLazySingleton<ImageDownloadService>(ImageDownloadService.new);
+    ..registerLazySingleton<ImageDownloadService>(
+      () => ImageDownloadService(httpClient: injection<AppHttpClient>()),
+    );
   CoffeeInjection.call();
 }

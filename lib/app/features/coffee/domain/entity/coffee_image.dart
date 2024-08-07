@@ -9,7 +9,6 @@ class CoffeeImage with _$CoffeeImage {
   const factory CoffeeImage({
     @Default('') String id,
     @Default('') String imageUrl,
-    @Default('') String localPath,
     @Default([]) List<int> bytes,
   }) = _CoffeeImage;
 }

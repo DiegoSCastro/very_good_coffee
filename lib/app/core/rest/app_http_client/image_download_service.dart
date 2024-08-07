@@ -2,15 +2,20 @@ import 'dart:developer';
 import 'dart:typed_data';
 import 'package:dio/dio.dart';
 import 'package:fpdart/fpdart.dart';
+import 'package:very_good_coffee/app/app.dart';
 
 class ImageDownloadService {
-  final Dio _dio = Dio();
+  final AppHttpClient _httpClient;
+
+  ImageDownloadService({required AppHttpClient httpClient})
+      : _httpClient = httpClient;
 
   Future<Either<Exception, Uint8List>> downloadImage(String url) async {
     try {
-      final response = await _dio.get<List<int>>(
-        url,
-        options: Options(responseType: ResponseType.bytes),
+      final uri = Uri.parse(url);
+      final response = await _httpClient.get<List<int>>(
+        uri,
+        extra: {'responseType': ResponseType.bytes},
       );
       if (response.statusCode == 200) {
         log(Uint8List.fromList(response.data!).toString());

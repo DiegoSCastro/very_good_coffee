@@ -2,7 +2,7 @@
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
     <application
         android:enableOnBackInvokedCallback="true"
-        android:label="very_good_coffee"
+        android:label="Very Good Coffee"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
         <activity

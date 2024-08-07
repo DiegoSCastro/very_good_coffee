@@ -1,5 +1,3 @@
-import 'dart:io';
-
 import 'package:fpdart/fpdart.dart';
 import 'package:very_good_coffee/app/app.dart';
 
@@ -20,19 +18,23 @@ class FavoriteRepositoryImpl implements FavoriteRepository {
   }
 
   @override
-  Future<Either<Exception, List<File>>> getFavoriteImages() async {
+  Future<Either<Exception, List<CoffeeImage>>> getFavoriteImages() async {
     try {
       final localImages = await _localDataSource.getFavoriteImages();
-      return Right(localImages);
+      return Right(localImages.map((image) => image.toEntity()).toList());
     } catch (e) {
       return Left(Exception('Failed to load favorite images: $e'));
     }
   }
 
   @override
-  Future<Either<Exception, bool>> saveFavoriteImage(CoffeeImage image) async {
+  Future<Either<Exception, bool>> saveFavoriteImage(
+    CoffeeImage coffeeImage,
+  ) async {
     try {
-      await _localDataSource.saveFavoriteImage(image as CoffeeImageModel);
+      await _localDataSource.saveFavoriteImage(
+        CoffeeImageModel.fromEntity(coffeeImage),
+      );
       return const Right(true);
     } catch (e) {
       return Left(Exception('Failed to save coffee image'));

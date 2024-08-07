@@ -23,7 +23,6 @@ mixin _$CoffeeImageModel {
   String get id => throw _privateConstructorUsedError;
   @JsonKey(name: 'file')
   String get imageUrl => throw _privateConstructorUsedError;
-  String get localPath => throw _privateConstructorUsedError;
   List<int> get bytes => throw _privateConstructorUsedError;
 
   /// Serializes this CoffeeImageModel to a JSON map.
@@ -43,10 +42,7 @@ abstract class $CoffeeImageModelCopyWith<$Res> {
       _$CoffeeImageModelCopyWithImpl<$Res, CoffeeImageModel>;
   @useResult
   $Res call(
-      {String id,
-      @JsonKey(name: 'file') String imageUrl,
-      String localPath,
-      List<int> bytes});
+      {String id, @JsonKey(name: 'file') String imageUrl, List<int> bytes});
 }
 
 /// @nodoc
@@ -66,7 +62,6 @@ class _$CoffeeImageModelCopyWithImpl<$Res, $Val extends CoffeeImageModel>
   $Res call({
     Object? id = null,
     Object? imageUrl = null,
-    Object? localPath = null,
     Object? bytes = null,
   }) {
     return _then(_value.copyWith(
@@ -77,10 +72,6 @@ class _$CoffeeImageModelCopyWithImpl<$Res, $Val extends CoffeeImageModel>
       imageUrl: null == imageUrl
           ? _value.imageUrl
           : imageUrl // ignore: cast_nullable_to_non_nullable
-              as String,
-      localPath: null == localPath
-          ? _value.localPath
-          : localPath // ignore: cast_nullable_to_non_nullable
               as String,
       bytes: null == bytes
           ? _value.bytes
@@ -99,10 +90,7 @@ abstract class _$$CoffeeImageModelImplCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {String id,
-      @JsonKey(name: 'file') String imageUrl,
-      String localPath,
-      List<int> bytes});
+      {String id, @JsonKey(name: 'file') String imageUrl, List<int> bytes});
 }
 
 /// @nodoc
@@ -120,7 +108,6 @@ class __$$CoffeeImageModelImplCopyWithImpl<$Res>
   $Res call({
     Object? id = null,
     Object? imageUrl = null,
-    Object? localPath = null,
     Object? bytes = null,
   }) {
     return _then(_$CoffeeImageModelImpl(
@@ -131,10 +118,6 @@ class __$$CoffeeImageModelImplCopyWithImpl<$Res>
       imageUrl: null == imageUrl
           ? _value.imageUrl
           : imageUrl // ignore: cast_nullable_to_non_nullable
-              as String,
-      localPath: null == localPath
-          ? _value.localPath
-          : localPath // ignore: cast_nullable_to_non_nullable
               as String,
       bytes: null == bytes
           ? _value._bytes
@@ -150,7 +133,6 @@ class _$CoffeeImageModelImpl extends _CoffeeImageModel {
   const _$CoffeeImageModelImpl(
       {this.id = '',
       @JsonKey(name: 'file') this.imageUrl = '',
-      this.localPath = '',
       final List<int> bytes = const []})
       : _bytes = bytes,
         super._();
@@ -164,9 +146,6 @@ class _$CoffeeImageModelImpl extends _CoffeeImageModel {
   @override
   @JsonKey(name: 'file')
   final String imageUrl;
-  @override
-  @JsonKey()
-  final String localPath;
   final List<int> _bytes;
   @override
   @JsonKey()
@@ -178,7 +157,7 @@ class _$CoffeeImageModelImpl extends _CoffeeImageModel {
 
   @override
   String toString() {
-    return 'CoffeeImageModel(id: $id, imageUrl: $imageUrl, localPath: $localPath, bytes: $bytes)';
+    return 'CoffeeImageModel(id: $id, imageUrl: $imageUrl, bytes: $bytes)';
   }
 
   @override
@@ -189,15 +168,13 @@ class _$CoffeeImageModelImpl extends _CoffeeImageModel {
             (identical(other.id, id) || other.id == id) &&
             (identical(other.imageUrl, imageUrl) ||
                 other.imageUrl == imageUrl) &&
-            (identical(other.localPath, localPath) ||
-                other.localPath == localPath) &&
             const DeepCollectionEquality().equals(other._bytes, _bytes));
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  int get hashCode => Object.hash(runtimeType, id, imageUrl, localPath,
-      const DeepCollectionEquality().hash(_bytes));
+  int get hashCode => Object.hash(
+      runtimeType, id, imageUrl, const DeepCollectionEquality().hash(_bytes));
 
   /// Create a copy of CoffeeImageModel
   /// with the given fields replaced by the non-null parameter values.
@@ -220,7 +197,6 @@ abstract class _CoffeeImageModel extends CoffeeImageModel {
   const factory _CoffeeImageModel(
       {final String id,
       @JsonKey(name: 'file') final String imageUrl,
-      final String localPath,
       final List<int> bytes}) = _$CoffeeImageModelImpl;
   const _CoffeeImageModel._() : super._();
 
@@ -232,8 +208,6 @@ abstract class _CoffeeImageModel extends CoffeeImageModel {
   @override
   @JsonKey(name: 'file')
   String get imageUrl;
-  @override
-  String get localPath;
   @override
   List<int> get bytes;
 

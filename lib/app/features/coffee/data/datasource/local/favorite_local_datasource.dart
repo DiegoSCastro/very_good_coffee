@@ -6,7 +6,7 @@ import 'package:very_good_coffee/app/app.dart';
 
 abstract interface class FavoriteLocalDatasource {
   Future<void> saveFavoriteImage(CoffeeImageModel image);
-  Future<List<File>> getFavoriteImages();
+  Future<List<CoffeeImageModel>> getFavoriteImages();
   Future<void> deleteFavoriteImage(String id);
 }
 
@@ -18,26 +18,17 @@ class FavoriteLocalDatasourceImpl implements FavoriteLocalDatasource {
 
   @override
   Future<void> saveFavoriteImage(CoffeeImageModel image) async {
-    final directory = await getApplicationDocumentsDirectory();
-    final path =
-        '${directory.path}/${DateTime.now().millisecondsSinceEpoch}.jpg';
-    final file = File(path);
-
     if (image.bytes.isNotEmpty) {
-      await file.writeAsBytes(image.bytes);
-      await _databaseService.insertFavoriteCoffee({
-        'imageUrl': image.imageUrl,
-        'localPath': path,
-      });
+      await _databaseService.insertFavoriteCoffee(image);
     } else {
       throw Exception('Bytes da imagem estão vazios ou nulos');
     }
   }
 
   @override
-  Future<List<File>> getFavoriteImages() async {
+  Future<List<CoffeeImageModel>> getFavoriteImages() async {
     final coffeeMaps = await _databaseService.getFavoriteCoffees();
-    return coffeeMaps.map((map) => File(map['localPath'])).toList();
+    return coffeeMaps;
   }
 
   @override

@@ -18,7 +18,6 @@ final _privateConstructorUsedError = UnsupportedError(
 mixin _$CoffeeImage {
   String get id => throw _privateConstructorUsedError;
   String get imageUrl => throw _privateConstructorUsedError;
-  String get localPath => throw _privateConstructorUsedError;
   List<int> get bytes => throw _privateConstructorUsedError;
 
   /// Create a copy of CoffeeImage
@@ -34,7 +33,7 @@ abstract class $CoffeeImageCopyWith<$Res> {
           CoffeeImage value, $Res Function(CoffeeImage) then) =
       _$CoffeeImageCopyWithImpl<$Res, CoffeeImage>;
   @useResult
-  $Res call({String id, String imageUrl, String localPath, List<int> bytes});
+  $Res call({String id, String imageUrl, List<int> bytes});
 }
 
 /// @nodoc
@@ -54,7 +53,6 @@ class _$CoffeeImageCopyWithImpl<$Res, $Val extends CoffeeImage>
   $Res call({
     Object? id = null,
     Object? imageUrl = null,
-    Object? localPath = null,
     Object? bytes = null,
   }) {
     return _then(_value.copyWith(
@@ -65,10 +63,6 @@ class _$CoffeeImageCopyWithImpl<$Res, $Val extends CoffeeImage>
       imageUrl: null == imageUrl
           ? _value.imageUrl
           : imageUrl // ignore: cast_nullable_to_non_nullable
-              as String,
-      localPath: null == localPath
-          ? _value.localPath
-          : localPath // ignore: cast_nullable_to_non_nullable
               as String,
       bytes: null == bytes
           ? _value.bytes
@@ -86,7 +80,7 @@ abstract class _$$CoffeeImageImplCopyWith<$Res>
       __$$CoffeeImageImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String id, String imageUrl, String localPath, List<int> bytes});
+  $Res call({String id, String imageUrl, List<int> bytes});
 }
 
 /// @nodoc
@@ -104,7 +98,6 @@ class __$$CoffeeImageImplCopyWithImpl<$Res>
   $Res call({
     Object? id = null,
     Object? imageUrl = null,
-    Object? localPath = null,
     Object? bytes = null,
   }) {
     return _then(_$CoffeeImageImpl(
@@ -115,10 +108,6 @@ class __$$CoffeeImageImplCopyWithImpl<$Res>
       imageUrl: null == imageUrl
           ? _value.imageUrl
           : imageUrl // ignore: cast_nullable_to_non_nullable
-              as String,
-      localPath: null == localPath
-          ? _value.localPath
-          : localPath // ignore: cast_nullable_to_non_nullable
               as String,
       bytes: null == bytes
           ? _value._bytes
@@ -132,10 +121,7 @@ class __$$CoffeeImageImplCopyWithImpl<$Res>
 
 class _$CoffeeImageImpl implements _CoffeeImage {
   const _$CoffeeImageImpl(
-      {this.id = '',
-      this.imageUrl = '',
-      this.localPath = '',
-      final List<int> bytes = const []})
+      {this.id = '', this.imageUrl = '', final List<int> bytes = const []})
       : _bytes = bytes;
 
   @override
@@ -144,9 +130,6 @@ class _$CoffeeImageImpl implements _CoffeeImage {
   @override
   @JsonKey()
   final String imageUrl;
-  @override
-  @JsonKey()
-  final String localPath;
   final List<int> _bytes;
   @override
   @JsonKey()
@@ -158,7 +141,7 @@ class _$CoffeeImageImpl implements _CoffeeImage {
 
   @override
   String toString() {
-    return 'CoffeeImage(id: $id, imageUrl: $imageUrl, localPath: $localPath, bytes: $bytes)';
+    return 'CoffeeImage(id: $id, imageUrl: $imageUrl, bytes: $bytes)';
   }
 
   @override
@@ -169,14 +152,12 @@ class _$CoffeeImageImpl implements _CoffeeImage {
             (identical(other.id, id) || other.id == id) &&
             (identical(other.imageUrl, imageUrl) ||
                 other.imageUrl == imageUrl) &&
-            (identical(other.localPath, localPath) ||
-                other.localPath == localPath) &&
             const DeepCollectionEquality().equals(other._bytes, _bytes));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, id, imageUrl, localPath,
-      const DeepCollectionEquality().hash(_bytes));
+  int get hashCode => Object.hash(
+      runtimeType, id, imageUrl, const DeepCollectionEquality().hash(_bytes));
 
   /// Create a copy of CoffeeImage
   /// with the given fields replaced by the non-null parameter values.
@@ -191,15 +172,12 @@ abstract class _CoffeeImage implements CoffeeImage {
   const factory _CoffeeImage(
       {final String id,
       final String imageUrl,
-      final String localPath,
       final List<int> bytes}) = _$CoffeeImageImpl;
 
   @override
   String get id;
   @override
   String get imageUrl;
-  @override
-  String get localPath;
   @override
   List<int> get bytes;
 
