@@ -11,6 +11,7 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   final _cubit = injection<HomeCubit>();
+  final _favoriteCubit = injection<FavoriteCubit>();
 
   @override
   void initState() {
@@ -53,11 +54,14 @@ class _HomePageState extends State<HomePage> {
                 child: const Text('Refresh'),
               ),
               FilledButton(
-                onPressed: () {},
+                onPressed: () => _favoriteCubit.saveFavoriteImage(
+                  imageUrl: (_cubit.state as HomeSuccess).fileUrl,
+                ),
                 child: const Text('Add to Favorites'),
               ),
               OutlinedButton(
-                onPressed: () {},
+                onPressed: () =>
+                    Navigator.of(context).pushNamed(AppRoutes.favorite),
                 child: const Text('Go to Favorites'),
               ),
             ],

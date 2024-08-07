@@ -19,13 +19,13 @@ class FavoriteLocalDatasourceImpl implements FavoriteLocalDatasource {
   @override
   Future<void> saveFavoriteImage(CoffeeImageModel image) async {
     final directory = await getApplicationDocumentsDirectory();
-    final path = '${directory.path}/${image.id}.jpg';
+    final path =
+        '${directory.path}/${DateTime.now().millisecondsSinceEpoch}.jpg';
     final file = File(path);
 
     if (image.bytes.isNotEmpty) {
       await file.writeAsBytes(image.bytes);
       await _databaseService.insertFavoriteCoffee({
-        'id': image.id,
         'imageUrl': image.imageUrl,
         'localPath': path,
       });

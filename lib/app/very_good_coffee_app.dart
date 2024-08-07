@@ -11,6 +11,7 @@ class VeryGoodCoffeeApp extends StatelessWidget {
     return MultiBlocProvider(
       providers: [
         BlocProvider(create: (context) => injection<HomeCubit>()),
+        BlocProvider(create: (context) => injection<FavoriteCubit>()),
       ],
       child: MaterialApp(
         title: 'Very Good Coffee',

@@ -7,6 +7,7 @@ final injection = GetIt.instance;
 void initInjection() {
   injection
     ..registerLazySingleton<AppHttpClient>(DioClient.new)
-    ..registerLazySingleton<DatabaseService>(DatabaseService.new);
+    ..registerLazySingleton<DatabaseService>(() => DatabaseService.instance)
+    ..registerLazySingleton<ImageDownloadService>(ImageDownloadService.new);
   CoffeeInjection.call();
 }

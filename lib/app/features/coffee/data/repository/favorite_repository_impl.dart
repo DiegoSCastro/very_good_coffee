@@ -25,7 +25,7 @@ class FavoriteRepositoryImpl implements FavoriteRepository {
       final localImages = await _localDataSource.getFavoriteImages();
       return Right(localImages);
     } catch (e) {
-      return Left(Exception('Failed to load favorite images'));
+      return Left(Exception('Failed to load favorite images: $e'));
     }
   }
 
