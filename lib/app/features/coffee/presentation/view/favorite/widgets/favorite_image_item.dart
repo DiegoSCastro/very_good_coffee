@@ -24,7 +24,7 @@ class FavoriteImageItem extends StatelessWidget {
         child: Hero(
           tag: coffeeImage.id,
           child: Container(
-            height: 150,
+            height: 132,
             width: double.infinity,
             decoration: BoxDecoration(
               image: DecorationImage(
