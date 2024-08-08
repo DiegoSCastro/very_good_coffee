@@ -37,8 +37,9 @@ class _$FavoritePageState extends State<FavoritePage> {
                     final coffeeImage = coffeImages[index];
                     return FavoriteImageItem(
                       coffeeImage: coffeeImage,
-                      onDismissed: () =>
-                          _cubit.removeFavoriteImage(imageId: coffeeImage.id),
+                      onDismissed: () => _cubit.removeFavoriteImage(
+                        imageUrl: coffeeImage.imageUrl,
+                      ),
                     );
                   },
                 ),

@@ -2,7 +2,7 @@ import 'package:fpdart/fpdart.dart';
 import 'package:very_good_coffee/app/app.dart';
 
 abstract interface class SaveFavoriteImageUsecase {
-  Future<Either<Exception, bool>> call({required String imageUrl});
+  Future<Either<Exception, Unit>> call({required String imageUrl});
 }
 
 class SaveFavoriteImageUsecaseImpl implements SaveFavoriteImageUsecase {
@@ -16,7 +16,7 @@ class SaveFavoriteImageUsecaseImpl implements SaveFavoriteImageUsecase {
   final ImageDownloadService _imageDownloadService;
 
   @override
-  Future<Either<Exception, bool>> call({required String imageUrl}) async {
+  Future<Either<Exception, Unit>> call({required String imageUrl}) async {
     final downloadResult = await _imageDownloadService.downloadImage(imageUrl);
     return downloadResult.fold(
       left,

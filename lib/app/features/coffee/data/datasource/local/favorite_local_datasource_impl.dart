@@ -22,8 +22,8 @@ class FavoriteLocalDatasourceImpl implements FavoriteLocalDatasource {
   }
 
   @override
-  Future<void> deleteFavoriteImage(String id) async {
-    await _databaseService.deleteFavoriteCoffee(id);
+  Future<void> deleteFavoriteImage(String imageUrl) async {
+    await _databaseService.deleteFavoriteCoffee(imageUrl);
   }
 
   @override

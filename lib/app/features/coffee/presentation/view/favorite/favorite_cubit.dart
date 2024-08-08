@@ -5,13 +5,16 @@ class FavoriteCubit extends Cubit<FavoriteState> {
   final SaveFavoriteImageUsecase _saveFavoriteImageUsecase;
   final GetFavoriteImagesUsecase _getFavoriteImagesUsecase;
   final RemoveFavoriteImageUsecase _removeFavoriteImageUsecase;
+  final ContainsImageUrlUsecase _containsImageUrlUsecase;
   FavoriteCubit({
     required SaveFavoriteImageUsecase saveFavoriteImageUsecase,
     required GetFavoriteImagesUsecase getFavoriteImagesUsecase,
     required RemoveFavoriteImageUsecase removeFavoriteImageUsecase,
+    required ContainsImageUrlUsecase containsImageUrlUsecase,
   })  : _saveFavoriteImageUsecase = saveFavoriteImageUsecase,
         _getFavoriteImagesUsecase = getFavoriteImagesUsecase,
         _removeFavoriteImageUsecase = removeFavoriteImageUsecase,
+        _containsImageUrlUsecase = containsImageUrlUsecase,
         super(FavoriteState.initial());
 
   Future<void> getFavoriteImages() async {
@@ -37,11 +40,19 @@ class FavoriteCubit extends Cubit<FavoriteState> {
     );
   }
 
-  Future<void> removeFavoriteImage({required String imageId}) async {
-    final result = await _removeFavoriteImageUsecase(id: imageId);
+  Future<void> removeFavoriteImage({required String imageUrl}) async {
+    final result = await _removeFavoriteImageUsecase(imageUrl: imageUrl);
     result.fold(
       (_) => emit(FavoriteState.error(errorMessage: 'Error removing favorite')),
       (_) => null,
+    );
+  }
+
+  Future<bool> containsImageUrl({required String imageUrl}) async {
+    final result = await _containsImageUrlUsecase(imageUrl: imageUrl);
+    return result.fold(
+      (_) => false,
+      (contains) => contains,
     );
   }
 }

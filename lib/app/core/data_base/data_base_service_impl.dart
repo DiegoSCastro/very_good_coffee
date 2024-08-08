@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:path/path.dart';
 import 'package:sqflite/sqflite.dart';
 import 'package:uuid/uuid.dart';
@@ -60,12 +62,12 @@ class DatabaseServiceImpl implements DatabaseService {
   }
 
   @override
-  Future<void> deleteFavoriteCoffee(String id) async {
+  Future<void> deleteFavoriteCoffee(String imageUrl) async {
     final db = await instance.database;
     await db.delete(
       'favorite_coffees',
-      where: 'id = ?',
-      whereArgs: [id],
+      where: 'imageUrl = ?',
+      whereArgs: [imageUrl],
     );
   }
 
@@ -77,6 +79,7 @@ class DatabaseServiceImpl implements DatabaseService {
       where: 'imageUrl = ?',
       whereArgs: [imageUrl],
     );
+    log(maps.length.toString());
     return maps.isNotEmpty;
   }
 }

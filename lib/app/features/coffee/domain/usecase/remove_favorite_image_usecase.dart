@@ -2,7 +2,7 @@ import 'package:fpdart/fpdart.dart';
 import 'package:very_good_coffee/app/app.dart';
 
 abstract interface class RemoveFavoriteImageUsecase {
-  Future<Either<Exception, bool>> call({required String id});
+  Future<Either<Exception, Unit>> call({required String imageUrl});
 }
 
 class RemoveFavoriteImageUsecaseImpl implements RemoveFavoriteImageUsecase {
@@ -12,6 +12,6 @@ class RemoveFavoriteImageUsecaseImpl implements RemoveFavoriteImageUsecase {
   final FavoriteRepository _repository;
 
   @override
-  Future<Either<Exception, bool>> call({required String id}) async =>
-      _repository.deleteFavoriteImage(id);
+  Future<Either<Exception, Unit>> call({required String imageUrl}) async =>
+      _repository.deleteFavoriteImage(imageUrl);
 }

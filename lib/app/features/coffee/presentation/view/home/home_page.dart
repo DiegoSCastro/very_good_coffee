@@ -13,10 +13,19 @@ class _HomePageState extends State<HomePage> {
   final _cubit = injection<HomeCubit>();
   final _favoriteCubit = injection<FavoriteCubit>();
 
+  bool isFavorite = false;
+
+  Future<void> _checkIsFavorite() async {
+    isFavorite = await _favoriteCubit.containsImageUrl(
+      imageUrl: (_cubit.state as HomeSuccess).fileUrl,
+    );
+    setState(() {});
+  }
+
   @override
   void initState() {
     super.initState();
-    _cubit.getRandomCoffeeImage();
+    _cubit.getRandomCoffeeImage().then((v) async => _checkIsFavorite());
   }
 
   @override
@@ -54,14 +63,32 @@ class _HomePageState extends State<HomePage> {
                 child: const Text('Refresh'),
               ),
               FilledButton(
-                onPressed: () => _favoriteCubit.saveFavoriteImage(
-                  imageUrl: (_cubit.state as HomeSuccess).fileUrl,
+                onPressed: () async {
+                  final fileUrl = (_cubit.state as HomeSuccess).fileUrl;
+
+                  isFavorite
+                      ? await _favoriteCubit.removeFavoriteImage(
+                          imageUrl: fileUrl,
+                        )
+                      : await _favoriteCubit.saveFavoriteImage(
+                          imageUrl: fileUrl,
+                        );
+
+                  await _checkIsFavorite();
+                },
+                child: Row(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    Text(isFavorite ? 'Remove Favorites' : 'Add to Favorites'),
+                    const SizedBox(width: 16),
+                    Icon(isFavorite ? Icons.favorite : Icons.favorite_border),
+                  ],
                 ),
-                child: const Text('Add to Favorites'),
               ),
               OutlinedButton(
-                onPressed: () =>
-                    Navigator.of(context).pushNamed(AppRoutes.favorite),
+                onPressed: () => Navigator.of(context)
+                    .pushNamed(AppRoutes.favorite)
+                    .then((v) => _checkIsFavorite()),
                 child: const Text('Go to Favorites'),
               ),
             ],

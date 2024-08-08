@@ -7,7 +7,7 @@ class RemoveFavoriteAlertBanner extends StatelessWidget {
   Widget build(BuildContext context) {
     return IconButton(
       onPressed: () {
-        ScaffoldMessenger.of(context).hideCurrentMaterialBanner();
+        ScaffoldMessenger.of(context).clearMaterialBanners();
         ScaffoldMessenger.of(context).showMaterialBanner(
           MaterialBanner(
             content: const Text('Drag left to remove favorite item'),

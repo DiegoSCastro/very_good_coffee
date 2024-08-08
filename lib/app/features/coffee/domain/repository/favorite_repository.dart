@@ -2,8 +2,8 @@ import 'package:fpdart/fpdart.dart';
 import 'package:very_good_coffee/app/app.dart';
 
 abstract interface class FavoriteRepository {
-  Future<Either<Exception, bool>> saveFavoriteImage(CoffeeImage image);
+  Future<Either<Exception, Unit>> saveFavoriteImage(CoffeeImage image);
   Future<Either<Exception, List<CoffeeImage>>> getFavoriteImages();
-  Future<Either<Exception, bool>> deleteFavoriteImage(String id);
-  Future<Either<Exception, bool>> containsImageUrl(String image);
+  Future<Either<Exception, Unit>> deleteFavoriteImage(String imageUrl);
+  Future<Either<Exception, bool>> containsImageUrl(String imageUrl);
 }

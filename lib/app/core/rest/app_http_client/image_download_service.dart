@@ -1,4 +1,3 @@
-import 'dart:developer';
 import 'dart:typed_data';
 import 'package:dio/dio.dart';
 import 'package:fpdart/fpdart.dart';
@@ -18,7 +17,6 @@ class ImageDownloadService {
         extra: {'responseType': ResponseType.bytes},
       );
       if (response.statusCode == 200) {
-        log(Uint8List.fromList(response.data!).toString());
         return right(Uint8List.fromList(response.data!));
       } else {
         return left(
