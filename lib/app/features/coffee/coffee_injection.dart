@@ -39,6 +39,11 @@ class CoffeeInjection {
           imageDownloadService: injection<ImageDownloadService>(),
         ),
       )
+      ..registerLazySingleton<RemoveFavoriteImageUsecase>(
+        () => RemoveFavoriteImageUsecaseImpl(
+          repository: injection<FavoriteRepository>(),
+        ),
+      )
       ..registerLazySingleton<HomeCubit>(
         () => HomeCubit(
           getRandomImageUsecase: injection<GetRandomImageUsecase>(),
@@ -48,6 +53,7 @@ class CoffeeInjection {
         () => FavoriteCubit(
           getFavoriteImagesUsecase: injection<GetFavoriteImagesUsecase>(),
           saveFavoriteImageUsecase: injection<SaveFavoriteImageUsecase>(),
+          removeFavoriteImageUsecase: injection<RemoveFavoriteImageUsecase>(),
         ),
       );
   }

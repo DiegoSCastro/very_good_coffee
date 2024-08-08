@@ -5,4 +5,5 @@ abstract interface class FavoriteRepository {
   Future<Either<Exception, bool>> saveFavoriteImage(CoffeeImage image);
   Future<Either<Exception, List<CoffeeImage>>> getFavoriteImages();
   Future<Either<Exception, bool>> deleteFavoriteImage(String id);
+  Future<Either<Exception, bool>> containsImageUrl(String image);
 }

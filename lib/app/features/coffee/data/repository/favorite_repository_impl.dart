@@ -8,16 +8,6 @@ class FavoriteRepositoryImpl implements FavoriteRepository {
   final FavoriteLocalDatasource _localDataSource;
 
   @override
-  Future<Either<Exception, bool>> deleteFavoriteImage(String id) async {
-    try {
-      await _localDataSource.deleteFavoriteImage(id);
-      return const Right(true);
-    } catch (e) {
-      return Left(Exception('Failed to delete coffee image'));
-    }
-  }
-
-  @override
   Future<Either<Exception, List<CoffeeImage>>> getFavoriteImages() async {
     try {
       final localImages = await _localDataSource.getFavoriteImages();
@@ -38,6 +28,26 @@ class FavoriteRepositoryImpl implements FavoriteRepository {
       return const Right(true);
     } catch (e) {
       return Left(Exception('Failed to save coffee image'));
+    }
+  }
+
+  @override
+  Future<Either<Exception, bool>> deleteFavoriteImage(String id) async {
+    try {
+      await _localDataSource.deleteFavoriteImage(id);
+      return const Right(true);
+    } catch (e) {
+      return Left(Exception('Failed to delete coffee image'));
+    }
+  }
+
+  @override
+  Future<Either<Exception, bool>> containsImageUrl(String image) async {
+    try {
+      final hasImage = await _localDataSource.containsImageUrl(image);
+      return Right(hasImage);
+    } catch (e) {
+      return Left(Exception('Failed to check for image'));
     }
   }
 }

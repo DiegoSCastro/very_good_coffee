@@ -7,7 +7,7 @@ final injection = GetIt.instance;
 void initInjection() {
   injection
     ..registerLazySingleton<AppHttpClient>(DioClient.new)
-    ..registerLazySingleton<DatabaseService>(() => DatabaseService.instance)
+    ..registerLazySingleton<DatabaseService>(() => DatabaseServiceImpl.instance)
     ..registerLazySingleton<ImageDownloadService>(
       () => ImageDownloadService(httpClient: injection<AppHttpClient>()),
     );

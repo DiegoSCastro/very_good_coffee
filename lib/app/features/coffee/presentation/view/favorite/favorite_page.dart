@@ -1,5 +1,3 @@
-import 'dart:typed_data';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:very_good_coffee/app/app.dart';
@@ -25,6 +23,7 @@ class _$FavoritePageState extends State<FavoritePage> {
     return Scaffold(
       appBar: AppBar(
         title: const Text('My Favorite Coffees '),
+        actions: const [RemoveFavoriteAlertBanner()],
       ),
       body: Center(
         child: BlocBuilder<FavoriteCubit, FavoriteState>(
@@ -35,17 +34,11 @@ class _$FavoritePageState extends State<FavoritePage> {
                 child: ListView.builder(
                   itemCount: coffeImages.length,
                   itemBuilder: (context, index) {
-                    final image = coffeImages[index];
-                    return ListTile(
-                      leading: Image.memory(Uint8List.fromList(image.bytes)),
-                      trailing: IconButton(
-                        icon: const Icon(Icons.delete),
-                        onPressed: () {
-                          // final imageId =
-                          //     image.path.split('/').last.split('.').first;
-                          // coffeeCubit.deleteImage(imageId);
-                        },
-                      ),
+                    final coffeeImage = coffeImages[index];
+                    return FavoriteImageItem(
+                      coffeeImage: coffeeImage,
+                      onDismissed: () =>
+                          _cubit.removeFavoriteImage(imageId: coffeeImage.id),
                     );
                   },
                 ),
