@@ -66,3 +66,6 @@ This application was developed using Flutter version 3.24.0. To run it, you need
 - **Localization:**  
   Supports three languages using Flutter's localization features.
 
+- **Architecture**: 
+  Applied SOLID principles and Clean Architecture to ensure code maintainability, scalability, and testability.
+
