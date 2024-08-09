@@ -7,7 +7,7 @@ This project is a Flutter application which gives the user the ability to save t
 API: https://coffee.alexflipnote.dev
 
 
-###Run Instructions:
+### Run Instructions:
 
 This application was created using Flutter version 3.24.0. To run it, you need to have Flutter version 3.0.0 or higher and Dart version 3.5 or higher installed.
 
@@ -28,7 +28,7 @@ If you want to test it as an end user or QA, download and install the file below
 
 Download the file - https://drive.google.com/file/d/102XcI_IoFXB-lYwE0drDm5NROy9okvgG/view?usp=sharing
 
-###Implemented Features:
+### Implemented Features:
 
 Home: where you can change the language, view a photo related to coffee, add or remove from favorites and navigate to the favorites screen.
 It is also possible to change the photo that is currently displayed.
@@ -38,7 +38,7 @@ A list of favorites is displayed, each item is an image that can be clicked to v
 
 Image View: where we can see details to drag and pinch to zoom. It is also possible to select the text with the image link to copy and paste into a browser
 
-###Packages
+### Packages
 
 Unit and Widget Testing: To ensure app quality, we've implemented unit and widget tests. We've used the flutter_test and mocktail libraries to create and execute automated tests. Currently, our project has a test coverage of over 50%.
 
