@@ -30,7 +30,7 @@ This application was developed using Flutter version 3.24.0. To run it, you need
 
 5. **Run the App:**  
    To run the app on an Android device as an end user or QA tester, download and install the APK from the link below:
-   Download the file - https://drive.google.com/file/d/177Ir0cJAtzJKbRTWs36hS8TJhS6GwzKN/view?usp=sharing
+   https://drive.google.com/file/d/177Ir0cJAtzJKbRTWs36hS8TJhS6GwzKN/view?usp=sharing
 
 ### Features:
 
