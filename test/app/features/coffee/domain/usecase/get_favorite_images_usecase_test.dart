@@ -27,8 +27,8 @@ void main() {
   ];
 
   test(
-      'should return Right(List<CoffeeImage>) when getting favorite images succeeds',
-      () async {
+      'should return Right(List<CoffeeImage>) when getting favorite'
+      ' images succeeds', () async {
     when(() => mockFavoriteRepository.getFavoriteImages())
         .thenAnswer((_) async => Right(tCoffeeImages));
 

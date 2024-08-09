@@ -4,10 +4,9 @@ analyzer:
     - lib/**.freezed.dart
 
   errors:
-    avoid_equals_and_hash_code_on_mutable_classes: ignore
     invalid_annotation_target: ignore
     one_member_abstracts: ignore
-    sort_constructors_first: ignore
+    public_member_api_docs: ignore
 
 include: package:flutter_lints/flutter.yaml
 
@@ -85,6 +84,7 @@ linter:
     - library_names
     - library_prefixes
     - library_private_types_in_public_api
+    - lines_longer_than_80_chars
     - literal_only_boolean_expressions
     - missing_whitespace_between_adjacent_strings
     - no_adjacent_strings_in_list
@@ -140,7 +140,7 @@ linter:
     - prefer_typing_uninitialized_variables
     - prefer_void_to_null
     - provide_deprecation_message
-    # - public_member_api_docs
+    - public_member_api_docs
     - recursive_getters
     - require_trailing_commas
     - secure_pubspec_urls
@@ -149,6 +149,7 @@ linter:
     - slash_for_doc_comments
     - sort_child_properties_last
     - sort_constructors_first
+    - sort_pub_dependencies
     - sort_unnamed_constructors_first
     - test_types_in_equals
     - throw_in_finally
@@ -199,6 +200,3 @@ linter:
     - use_to_and_as_if_applicable
     - valid_regexps
     - void_checks
-
-    # - sort_pub_dependencies
-    # - lines_longer_than_80_chars

@@ -45,8 +45,8 @@ void main() {
     });
 
     test(
-        'toEntity should create a valid CoffeeImage entity from CoffeeImageModel',
-        () {
+        'toEntity should create a valid CoffeeImage entity from'
+        ' CoffeeImageModel', () {
       final result = coffeeImageModel.toEntity();
 
       expect(result, equals(coffeeImageEntity));

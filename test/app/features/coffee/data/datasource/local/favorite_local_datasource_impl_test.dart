@@ -25,8 +25,8 @@ void main() {
 
   group('FavoriteLocalDatasourceImpl', () {
     test(
-        'should return a list of CoffeeImageModel when getFavoriteImages is called',
-        () async {
+        'should return a list of CoffeeImageModel when getFavoriteImages'
+        ' is called', () async {
       when(() => mockDatabaseService.getFavoriteCoffees()).thenAnswer(
         (_) async => coffeeImageMaps,
       );

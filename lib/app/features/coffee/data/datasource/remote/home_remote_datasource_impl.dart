@@ -1,10 +1,9 @@
 import 'package:very_good_coffee/app/app.dart';
 
 class HomeRemoteDatasourceImpl implements HomeRemoteDatasource {
-  final AppHttpClient _httpClient;
-
   const HomeRemoteDatasourceImpl({required AppHttpClient httpClient})
       : _httpClient = httpClient;
+  final AppHttpClient _httpClient;
 
   @override
   Future<CoffeeImageModel> getRandomCoffeeImage() async {

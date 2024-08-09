@@ -39,8 +39,8 @@ void main() {
   });
 
   test(
-      'should return Left(Exception) when there is an error checking the imageUrl',
-      () async {
+      'should return Left(Exception) when there is an error checking'
+      ' the imageUrl', () async {
     final exception = Exception('Failed to check imageUrl');
     when(() => mockFavoriteRepository.containsImageUrl(tImageUrl))
         .thenAnswer((_) async => Left(exception));

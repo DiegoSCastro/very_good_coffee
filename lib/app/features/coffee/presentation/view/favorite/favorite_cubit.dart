@@ -2,10 +2,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:very_good_coffee/app/app.dart';
 
 class FavoriteCubit extends Cubit<FavoriteState> {
-  final SaveFavoriteImageUsecase _saveFavoriteImageUsecase;
-  final GetFavoriteImagesUsecase _getFavoriteImagesUsecase;
-  final RemoveFavoriteImageUsecase _removeFavoriteImageUsecase;
-  final ContainsImageUrlUsecase _containsImageUrlUsecase;
   FavoriteCubit({
     required SaveFavoriteImageUsecase saveFavoriteImageUsecase,
     required GetFavoriteImagesUsecase getFavoriteImagesUsecase,
@@ -16,6 +12,10 @@ class FavoriteCubit extends Cubit<FavoriteState> {
         _removeFavoriteImageUsecase = removeFavoriteImageUsecase,
         _containsImageUrlUsecase = containsImageUrlUsecase,
         super(FavoriteState.initial());
+  final SaveFavoriteImageUsecase _saveFavoriteImageUsecase;
+  final GetFavoriteImagesUsecase _getFavoriteImagesUsecase;
+  final RemoveFavoriteImageUsecase _removeFavoriteImageUsecase;
+  final ContainsImageUrlUsecase _containsImageUrlUsecase;
 
   Future<void> getFavoriteImages() async {
     emit(FavoriteState.loading());

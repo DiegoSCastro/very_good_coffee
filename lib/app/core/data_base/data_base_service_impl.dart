@@ -1,5 +1,3 @@
-import 'dart:developer';
-
 import 'package:path/path.dart';
 import 'package:sqflite/sqflite.dart';
 import 'package:uuid/uuid.dart';
@@ -26,7 +24,8 @@ class DatabaseServiceImpl implements DatabaseService {
       version: 1,
       onCreate: (db, version) {
         return db.execute(
-          'CREATE TABLE favorite_coffees(id TEXT PRIMARY KEY, imageUrl TEXT, imageBytes BLOB)',
+          'CREATE TABLE favorite_coffees(id TEXT PRIMARY KEY, imageUrl TEXT,'
+          ' imageBytes BLOB)',
         );
       },
     );
@@ -79,7 +78,6 @@ class DatabaseServiceImpl implements DatabaseService {
       where: 'imageUrl = ?',
       whereArgs: [imageUrl],
     );
-    log(maps.length.toString());
     return maps.isNotEmpty;
   }
 }

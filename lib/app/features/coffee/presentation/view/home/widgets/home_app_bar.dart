@@ -36,13 +36,12 @@ class _HomeAppBarState extends State<HomeAppBar> {
 }
 
 class _BannerIconButton extends StatelessWidget {
-  final String assetPath;
-  final VoidCallback onPressed;
-
   const _BannerIconButton({
     required this.assetPath,
     required this.onPressed,
   });
+  final String assetPath;
+  final VoidCallback onPressed;
 
   @override
   Widget build(BuildContext context) {

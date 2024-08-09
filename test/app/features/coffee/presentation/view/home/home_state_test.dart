@@ -14,8 +14,8 @@ void main() {
     });
 
     test(
-        'should be HomeSuccess with correct fileUrl when created with HomeState.success()',
-        () {
+        'should be HomeSuccess with correct fileUrl when created with'
+        ' HomeState.success()', () {
       const fileUrl = 'http://example.com/file.jpg';
       final state = HomeState.success(fileUrl: fileUrl);
       expect(state, isA<HomeSuccess>());
@@ -23,8 +23,8 @@ void main() {
     });
 
     test(
-        'should be HomeError with correct errorMessage when created with HomeState.error()',
-        () {
+        'should be HomeError with correct errorMessage when created'
+        ' with HomeState.error()', () {
       const errorMessage = 'An error occurred';
       final state = HomeState.error(errorMessage: errorMessage);
       expect(state, isA<HomeError>());

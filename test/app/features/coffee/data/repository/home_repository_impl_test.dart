@@ -21,8 +21,8 @@ void main() {
     const imageUrl = 'https://coffee.alexflipnote.dev/random';
 
     test(
-        'should return Right with imageUrl when getRandomCoffeeImageUrl is successful',
-        () async {
+        'should return Right with imageUrl when getRandomCoffeeImageUrl'
+        ' is successful', () async {
       when(() => mockRemoteDatasource.getRandomCoffeeImage()).thenAnswer(
         (_) async =>
             CoffeeImageModel.fromEntity(const CoffeeImage(imageUrl: imageUrl)),

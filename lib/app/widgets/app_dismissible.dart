@@ -2,14 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:very_good_coffee/l10n/l10n.dart';
 
 class AppDismissible extends StatelessWidget {
-  final VoidCallback onDismissed;
-  final Widget child;
-
   const AppDismissible({
     required this.onDismissed,
     required this.child,
     super.key,
   });
+  final VoidCallback onDismissed;
+  final Widget child;
 
   @override
   Widget build(BuildContext context) {

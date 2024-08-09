@@ -4,10 +4,9 @@ import 'package:fpdart/fpdart.dart';
 import 'package:very_good_coffee/app/app.dart';
 
 class ImageDownloadService {
-  final AppHttpClient _httpClient;
-
   ImageDownloadService({required AppHttpClient httpClient})
       : _httpClient = httpClient;
+  final AppHttpClient _httpClient;
 
   Future<Either<Exception, Uint8List>> downloadImage(String url) async {
     try {
