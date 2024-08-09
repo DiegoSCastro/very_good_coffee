@@ -11,6 +11,8 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+  flutter_localizations:
+    sdk: flutter
   cupertino_icons: ^1.0.8
   dio: ^5.5.0+1
   flutter_bloc: ^8.1.6
@@ -25,6 +27,7 @@ dependencies:
   sqflite: ^2.3.3+1
   uuid: ^4.4.2
   connectivity_plus: ^6.0.4
+  intl: ^0.19.0
 
 dev_dependencies:
   flutter_test:
@@ -35,21 +38,12 @@ dev_dependencies:
   mocktail: ^1.0.4
   bloc_test: ^9.1.7
   coverage: ^1.9.0
-  # flutter_launcher_icons: ^0.13.1
-
-# flutter_icons:
-#   android: true
-#   ios: true
-#   image_path: "assets/images.jpeg"
-#   adaptive_icon_background: "#1A6D49"
-#   adaptive_icon_foreground: "assets/images.jpeg"
-# To generate icons:
-#  dart run flutter_launcher_icons:main
 
 flutter:
+  generate: true
   uses-material-design: true
+  # flutter gen-l10n --arb-dir="lib/l10n/arb"
 
-  # To add assets to your application, add an assets section, like this:
-  # assets:
-  #   - images/a_dot_burr.jpeg
-  #   - images/a_dot_ham.jpeg
+  assets:
+    - assets/
+    - assets/flags/

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:very_good_coffee/app/app.dart';
+import 'package:very_good_coffee/l10n/l10n.dart';
 
 class FavoritePage extends StatefulWidget {
   const FavoritePage({super.key});
@@ -22,7 +23,7 @@ class _$FavoritePageState extends State<FavoritePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('My Favorite Coffees '),
+        title: Text(context.l10n.myFavoriteCoffees),
         actions: const [RemoveFavoriteAlertBanner()],
       ),
       body: Center(
@@ -30,7 +31,7 @@ class _$FavoritePageState extends State<FavoritePage> {
           builder: (context, state) => switch (state) {
             FavoriteSuccess(:final coffeImages) => Visibility(
                 visible: coffeImages.isNotEmpty,
-                replacement: const Text('Favorites is Empty'),
+                replacement: Text(context.l10n.favoritesEmpty),
                 child: ListView.builder(
                   itemCount: coffeImages.length,
                   itemBuilder: (context, index) {

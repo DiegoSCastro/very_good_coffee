@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:very_good_coffee/l10n/l10n.dart';
 
 class AppDismissible extends StatelessWidget {
   final VoidCallback onDismissed;
@@ -24,18 +25,18 @@ class AppDismissible extends StatelessWidget {
       confirmDismiss: (_) async => showDialog(
         context: context,
         builder: (_) => AlertDialog(
-          title: const Text('Are you sure?'),
-          content: const Text(
-            'Remove this image from favorites? It might be hard to find it again!',
+          title: Text(context.l10n.areYouSureQuestion),
+          content: Text(
+            context.l10n.removeConfirmMessage,
           ),
           actions: [
             FilledButton(
               onPressed: () => Navigator.of(context).pop(false),
-              child: const Text('Cancel'),
+              child: Text(context.l10n.cancel),
             ),
             ElevatedButton(
               onPressed: () => Navigator.of(context).pop(true),
-              child: const Text('Remove'),
+              child: Text(context.l10n.remove),
             ),
           ],
         ),

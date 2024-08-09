@@ -4,6 +4,7 @@ import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:very_good_coffee/app/app.dart';
+import 'package:very_good_coffee/l10n/l10n.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -65,63 +66,76 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: const HomeAppBar(),
       body: SafeArea(
         child: Padding(
           padding: const EdgeInsets.all(16),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.stretch,
-            children: [
-              Expanded(
-                child: Visibility(
-                  visible: _isConnected,
-                  replacement: const NoConnectionPlaceholder(),
-                  child: BlocBuilder<HomeCubit, HomeState>(
-                    builder: (context, state) => switch (state) {
-                      HomeSuccess(:final fileUrl) => ClipRRect(
-                          borderRadius: BorderRadius.circular(16),
-                          child: Image.network(
-                            fileUrl,
-                            fit: BoxFit.cover,
-                          ),
-                        ),
-                      HomeError(:final errorMessage) => Center(
-                          child: Text(errorMessage),
-                        ),
-                      _ => const Center(
-                          child: SizedBox.square(
-                            dimension: 48,
-                            child: CircularProgressIndicator(),
-                          ),
-                        ),
-                    },
+          child: BlocBuilder<HomeCubit, HomeState>(
+            builder: (context, state) {
+              return Column(
+                crossAxisAlignment: CrossAxisAlignment.stretch,
+                children: [
+                  Expanded(
+                    child: Visibility(
+                      visible: _isConnected,
+                      replacement: const NoConnectionPlaceholder(),
+                      child: Builder(
+                        builder: (_) => switch (state) {
+                          HomeSuccess(:final fileUrl) => ClipRRect(
+                              borderRadius: BorderRadius.circular(16),
+                              child: Image.network(
+                                fileUrl,
+                                fit: BoxFit.cover,
+                              ),
+                            ),
+                          HomeError(:final errorMessage) => Center(
+                              child: Text(errorMessage),
+                            ),
+                          _ => const Center(
+                              child: SizedBox.square(
+                                dimension: 48,
+                                child: CircularProgressIndicator(),
+                              ),
+                            ),
+                        },
+                      ),
+                    ),
                   ),
-                ),
-              ),
-              const SizedBox(height: 16),
-              ElevatedButton(
-                onPressed: _isConnected ? _refresh : null,
-                child: const Text('Refresh'),
-              ),
-              FilledButton(
-                onPressed: _isConnected ? _toggleFavorite : null,
-                child: Row(
-                  mainAxisSize: MainAxisSize.min,
-                  children: [
-                    Text(_isFavorite ? 'Remove Favorite' : 'Add Favorite'),
-                    const SizedBox(width: 16),
-                    Icon(_isFavorite ? Icons.favorite : Icons.favorite_border),
-                  ],
-                ),
-              ),
-              OutlinedButton(
-                onPressed: () => Navigator.of(context)
-                    .pushNamed(AppRoutes.favorite)
-                    .then((_) {
-                  if (_isConnected) _checkIsFavorite();
-                }),
-                child: const Text('Go to Favorites'),
-              ),
-            ],
+                  const SizedBox(height: 16),
+                  ElevatedButton(
+                    onPressed: _isConnected ? _refresh : null,
+                    child: Text(context.l10n.refresh),
+                  ),
+                  FilledButton(
+                    onPressed: _isConnected && state != HomeLoading()
+                        ? _toggleFavorite
+                        : null,
+                    child: Row(
+                      mainAxisSize: MainAxisSize.min,
+                      children: [
+                        Text(
+                          _isFavorite
+                              ? context.l10n.removeFavorite
+                              : context.l10n.addFavorite,
+                        ),
+                        const SizedBox(width: 16),
+                        Icon(
+                          _isFavorite ? Icons.favorite : Icons.favorite_border,
+                        ),
+                      ],
+                    ),
+                  ),
+                  OutlinedButton(
+                    onPressed: () => Navigator.of(context)
+                        .pushNamed(AppRoutes.favorite)
+                        .then((_) {
+                      if (_isConnected) _checkIsFavorite();
+                    }),
+                    child: Text(context.l10n.goToFavorites),
+                  ),
+                ],
+              );
+            },
           ),
         ),
       ),

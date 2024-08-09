@@ -1,0 +1,17 @@
+{
+    "@@locale": "es",
+    
+    "refresh": "Actualizar",
+    "removeFavorite": "Eliminar Favorito",
+    "addFavorite": "Agregar Favorito",
+    "goToFavorites": "Ir a Favoritos",
+    "myFavoriteCoffees": "Mis Cafés Favoritos",
+    "dragToRemoveBanner": "Arrastra hacia la izquierda para eliminar el elemento favorito",
+    "favoritesEmpty": "Los favoritos están vacíos",
+    "areYouSureQuestion": "¿Estás seguro?",
+    "removeConfirmMessage": "¿Eliminar esta imagen de los favoritos? ¡Podría ser difícil volver a encontrarla!",
+    "cancel": "Cancelar",
+    "remove": "Eliminar",
+    "noInternet": "Sin conexión a Internet",
+    "youCanStillSeeFavorites": "Aún puedes ver tus imágenes favoritas"
+}

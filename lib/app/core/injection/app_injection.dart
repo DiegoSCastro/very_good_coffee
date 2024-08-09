@@ -8,6 +8,7 @@ void initInjection() {
   injection
     ..registerLazySingleton<AppHttpClient>(DioClient.new)
     ..registerLazySingleton<DatabaseService>(() => DatabaseServiceImpl.instance)
+    ..registerLazySingleton<LocaleCubit>(LocaleCubit.new)
     ..registerLazySingleton<ImageDownloadService>(
       () => ImageDownloadService(httpClient: injection<AppHttpClient>()),
     );

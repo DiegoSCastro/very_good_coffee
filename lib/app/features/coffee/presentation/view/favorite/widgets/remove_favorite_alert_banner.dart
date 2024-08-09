@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:very_good_coffee/l10n/l10n.dart';
 
 class RemoveFavoriteAlertBanner extends StatelessWidget {
   const RemoveFavoriteAlertBanner({super.key});
@@ -10,7 +11,7 @@ class RemoveFavoriteAlertBanner extends StatelessWidget {
         ScaffoldMessenger.of(context).clearMaterialBanners();
         ScaffoldMessenger.of(context).showMaterialBanner(
           MaterialBanner(
-            content: const Text('Drag left to remove favorite item'),
+            content: Text(context.l10n.dragToRemoveBanner),
             actions: [
               IconButton(
                 icon: const Icon(Icons.close),
