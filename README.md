@@ -2,50 +2,67 @@
 
 ![Gravação de Tela 2024-08-08 às 22 09 55](https://github.com/user-attachments/assets/d42199e4-9bab-4304-a60e-3c29c414694f)
 
-This project is a Flutter application which gives the user the ability to save their favorite coffee pictures. 
+**Very Good Coffee** is a Flutter application that allows users to save their favorite coffee pictures.
 
 API: https://coffee.alexflipnote.dev
 
-
 ### Run Instructions:
 
-This application was created using Flutter version 3.24.0. To run it, you need to have Flutter version 3.0.0 or higher and Dart version 3.5 or higher installed.
+This application was developed using Flutter version 3.24.0. To run it, you need Flutter version 3.0.0 or higher and Dart version 3.5 or higher installed.
 
-Clone this repository to your local machine. Make sure you have the Flutter SDK installed on your machine.
+1. **Clone the Repository:**  
+   Clone this repository to your local machine.
 
+2. **Install Dependencies:**  
+   Open the project and run the following command to install dependencies:  
+   ```bash
+   flutter pub get
 
-Open the project and run the command:
-flutter pub get
+3. **Generate Localization Strings:**  
+   The following command will generate localized strings (although pub get should do this automatically):
+   ```bash
+   flutter gen-l10n --arb-dir="lib/l10n/arb"
 
-To generate strings locally(pub get should do that automatically)
-flutter gen-l10n --arb-dir="lib/l10n/arb"
+4. **Run Tests:**  
+   To run the automated tests, use:
+   ```bash
+   flutter test
 
-Run automated tests using the command:
-flutter test
+5. **Run the App:**  
+   To run the app on an Android device as an end user or QA tester, download and install the APK from the link below:
+   Download the file - https://drive.google.com/file/d/177Ir0cJAtzJKbRTWs36hS8TJhS6GwzKN/view?usp=sharing
 
-Run the app as a user:
-If you want to test it as an end user or QA, download and install the file below on an Android device.
+### Features:
 
-Download the file - https://drive.google.com/file/d/177Ir0cJAtzJKbRTWs36hS8TJhS6GwzKN/view?usp=sharing
+- **Home Screen:**  
+  Allows you to change the language, view a coffee-related photo, add or remove it from favorites, and navigate to the favorites screen. You can also change the currently displayed photo.
 
-### Implemented Features:
+- **Favorites Screen:**  
+  Includes a banner with instructions on how to remove a favorite item. Displays a list of favorite images, each of which can be tapped to view in detail or dragged left to remove after confirming.
 
-Home: where you can change the language, view a photo related to coffee, add or remove from favorites and navigate to the favorites screen.
-It is also possible to change the photo that is currently displayed.
+- **Image View:**  
+  Provides details of the image, with options to drag, pinch to zoom, and select text to copy the image link for use in a browser.
 
-Favorites: there is an icon that activates a banner explaining how to remove an item from the favorite.
-A list of favorites is displayed, each item is an image that can be clicked to view in more detail or can be dragged to the left to remove after a confirmation message
+### Packages Used:
 
-Image View: where we can see details to drag and pinch to zoom. It is also possible to select the text with the image link to copy and paste into a browser
+- **Unit and Widget Testing:**  
+  To ensure app quality, unit and widget tests have been implemented using the `flutter_test` and `mocktail` packages. The project currently has over 50% test coverage.
 
-### Packages
+- **Dependency Injection:**  
+  `get_it` is used for dependency injection, making the code more modular and easier to test.
 
-Unit and Widget Testing: To ensure app quality, we've implemented unit and widget tests. We've used the flutter_test and mocktail libraries to create and execute automated tests. Currently, our project has a test coverage of over 50%.
+- **Local Data Storage:**  
+  The `sqfLite` package is used for efficient local data storage.
 
-Dependency Injection: Utilized dependency injection through the get_it package. This approach enhances the separation of dependencies, making the code more modular and facilitating testing.
+- **State Management:**  
+  State management is handled using `Bloc/Cubit`, allowing the UI to reactively update with data changes.
 
-Local Data Storage: Implemented the sqfLite package to store data locally, enabling efficient storage of relevant information.
+- **Image Caching:**  
+  `cached_network_image` is used for efficient loading and caching of web images, improving app performance by displaying preloaded images.
 
-State Management: To employ Flutter's state management to reactively update the user interface when data changes. We've used "Bloc/Cubit" to reflect these changes in the user interface.
+- **Connectivity:**  
+  The app checks internet status using `connectivity_plus`.
 
-Image Caching: The "cached_network_image" package is utilized to efficiently load and cache web images. This enhances app performance by displaying preloaded images.
+- **Localization:**  
+  Supports three languages using Flutter's localization features.
+
