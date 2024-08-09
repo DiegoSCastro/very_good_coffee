@@ -16,11 +16,9 @@ void main() {
         ),
       );
 
-      // Tap the IconButton to trigger the banner
       await tester.tap(find.byIcon(Icons.info_outline));
-      await tester.pump(); // Rebuilds the widget tree
+      await tester.pump();
 
-      // Verify the MaterialBanner is displayed
       expect(find.byType(MaterialBanner), findsOneWidget);
       expect(find.text('Drag left to remove favorite item'), findsOneWidget);
     });

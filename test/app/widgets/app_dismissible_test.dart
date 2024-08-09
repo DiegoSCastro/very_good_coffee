@@ -43,30 +43,23 @@ void main() {
         ),
       );
 
-      // Swipe the dismissible
       await tester.drag(find.byType(AppDismissible), const Offset(-500, 0));
       await tester.pumpAndSettle();
 
-      // Verify the dialog is shown
       expect(find.byType(AlertDialog), findsOneWidget);
       expect(find.text('Are you sure?'), findsOneWidget);
 
-      // Tap on "Cancel"
       await tester.tap(find.text('Cancel'));
       await tester.pumpAndSettle();
 
-      // Verify that the item was not dismissed
       expect(wasDismissed, isFalse);
 
-      // Swipe again to show the dialog
       await tester.drag(find.byType(AppDismissible), const Offset(-500, 0));
       await tester.pumpAndSettle();
 
-      // Tap on "Remove"
       await tester.tap(find.text('Remove'));
       await tester.pumpAndSettle();
 
-      // Verify that the item was dismissed
       expect(wasDismissed, isTrue);
     });
 
@@ -86,11 +79,9 @@ void main() {
         ),
       );
 
-      // Swipe the dismissible to reveal the delete icon
       await tester.drag(find.byType(AppDismissible), const Offset(-50, 0));
       await tester.pumpAndSettle();
 
-      // Verify the delete icon is displayed
       expect(find.byIcon(Icons.delete), findsOneWidget);
     });
   });
