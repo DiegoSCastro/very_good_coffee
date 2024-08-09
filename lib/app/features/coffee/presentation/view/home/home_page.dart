@@ -1,5 +1,6 @@
 import 'dart:async';
 
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -83,8 +84,8 @@ class _HomePageState extends State<HomePage> {
                         builder: (_) => switch (state) {
                           HomeSuccess(:final fileUrl) => ClipRRect(
                               borderRadius: BorderRadius.circular(16),
-                              child: Image.network(
-                                fileUrl,
+                              child: CachedNetworkImage(
+                                imageUrl: fileUrl,
                                 fit: BoxFit.cover,
                               ),
                             ),
