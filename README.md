@@ -26,7 +26,7 @@ flutter test
 Run the app as a user:
 If you want to test it as an end user or QA, download and install the file below on an Android device.
 
-Download the file - https://drive.google.com/file/d/102XcI_IoFXB-lYwE0drDm5NROy9okvgG/view?usp=sharing
+Download the file - https://drive.google.com/file/d/177Ir0cJAtzJKbRTWs36hS8TJhS6GwzKN/view?usp=sharing
 
 ### Implemented Features:
 

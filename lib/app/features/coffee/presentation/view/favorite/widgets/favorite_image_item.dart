@@ -17,10 +17,13 @@ class FavoriteImageItem extends StatelessWidget {
     return AppDismissible(
       onDismissed: onDismissed,
       child: InkWell(
-        onTap: () => Navigator.of(context).pushNamed(
-          AppRoutes.imageView,
-          arguments: coffeeImage,
-        ),
+        onTap: () {
+          ScaffoldMessenger.of(context).clearMaterialBanners();
+          Navigator.of(context).pushNamed(
+            AppRoutes.imageView,
+            arguments: coffeeImage,
+          );
+        },
         child: Hero(
           tag: coffeeImage.id,
           child: Container(

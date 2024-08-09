@@ -23,6 +23,13 @@ class _$FavoritePageState extends State<FavoritePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        leading: IconButton(
+          onPressed: () {
+            ScaffoldMessenger.of(context).clearMaterialBanners();
+            Navigator.of(context).pop();
+          },
+          icon: const Icon(Icons.arrow_back),
+        ),
         title: Text(context.l10n.myFavoriteCoffees),
         actions: const [RemoveFavoriteAlertBanner()],
       ),
