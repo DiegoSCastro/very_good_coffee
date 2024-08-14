@@ -1,6 +1,6 @@
 # Very Good Coffee
 
-![Gravação de Tela 2024-08-08 às 22 09 55](https://github.com/user-attachments/assets/d42199e4-9bab-4304-a60e-3c29c414694f)
+![Gravação de Tela 2024-08-08 às 22 09 55](https://github.com/user-attachments/assets/22de6917-593a-4a09-a0a3-7095ee23f23c)
 
 **Very Good Coffee** is a Flutter application that allows users to save their favorite coffee pictures.
 
